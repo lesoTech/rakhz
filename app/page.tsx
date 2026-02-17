@@ -1,13 +1,18 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
 
 type FAQItem = { q: string; a: string };
 
 export default function WellnessLandingPage() {
   const brand = "Rakhshanda Abidi";
-  const whatsappNumber = "+91 98107 70216";
-  const whatsappLink = "https://wa.me/919810770216?text=Hi%20Rakhshanda%2C%20I%27d%20like%20to%20book%20a%201%3A1%20session.";
+
+  // ✅ (5) Updated mobile number everywhere
+  const whatsappNumber = "+91 7042221669";
+  const whatsappLink =
+    "https://wa.me/917042221669?text=Hi%20Rakhshanda%2C%20I%27d%20like%20to%20book%20a%201%3A1%20session.";
+
   const contactEmail = "rakhshanda.m.abidi@gmail.com";
   const instagramUrl =
     "https://www.instagram.com/rakhshanda_akashic?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==";
@@ -54,11 +59,23 @@ export default function WellnessLandingPage() {
       <header className="sticky top-0 z-40 border-b border-black/10 bg-[#FAF7F2]/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
           <div className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-xl bg-black/5 ring-1 ring-black/10" />
+<div className="relative h-10 w-10 overflow-hidden rounded-xl ring-1 ring-black/10">
+  <Image
+    src="/first.jpg"
+    alt="Rakhshanda Abidi"
+    fill
+    className="object-cover"
+  />
+</div>
             <div className="leading-tight">
-              <div className="text-sm font-semibold tracking-wide">{brand}</div>
+              {/* ✅ (2) Name in deep red */}
+              <div className="text-sm font-semibold tracking-wide text-[#7A0C0C]">
+                {brand}
+              </div>
+
+              {/* ✅ (1) Updated subtitle */}
               <div className="text-xs text-black/50">
-                Akashic Records • Shadow Work • EFT • Ho’oponopono
+                Akashic Channel and Conscious Living Coach
               </div>
             </div>
           </div>
@@ -98,12 +115,9 @@ export default function WellnessLandingPage() {
         <div className="mx-auto max-w-6xl px-4 pt-14 pb-10 sm:pt-20 sm:pb-16">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/5 px-3 py-1 text-xs text-black/60">
-                <span className="h-2 w-2 rounded-full bg-black/40" />
-                Soul-level healing, grounded and compassionate
-              </p>
+              {/* ✅ (3) Removed: Soul-level healing pill */}
 
-              <h1 className="mt-5 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+              <h1 className="mt-2 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
                 Reclaim the parts of you that were pushed away—{" "}
                 <span className="text-black/55">and come home to yourself.</span>
               </h1>
@@ -159,6 +173,18 @@ export default function WellnessLandingPage() {
 
             <div className="rounded-3xl border border-black/10 bg-white/60 p-6 ring-1 ring-black/5">
               <div className="rounded-2xl bg-gradient-to-b from-black/5 to-transparent p-5">
+                {/* ✅ (4) Added image (public/second.jpg) */}
+               <div className="relative mb-5 h-64 w-full overflow-hidden rounded-2xl border border-black/10 bg-black/5 sm:h-72">
+  <Image
+    src="/second.jpg"
+    alt="Rakhshanda Abidi"
+    fill
+className="object-cover object-top"    
+priority
+  />
+</div>
+
+
                 <div className="text-sm font-semibold">
                   A safe space for transformation
                 </div>
@@ -252,6 +278,16 @@ export default function WellnessLandingPage() {
             </div>
 
             <div className="rounded-3xl border border-black/10 bg-white/60 p-6">
+              {/* ✅ (4) Added image (public/first.jpg) */}
+              <div className="relative mb-5 h-44 w-full overflow-hidden rounded-2xl border border-black/10 bg-black/5 sm:h-52">
+                <Image
+                  src="/first.jpg"
+                  alt="About image"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
               <h3 className="text-lg font-semibold">I work primarily with</h3>
               <p className="mt-2 text-sm text-black/60 leading-relaxed">
                 Women who are self-aware yet feel stuck, overwhelmed, or
@@ -448,6 +484,18 @@ export default function WellnessLandingPage() {
                   Message on WhatsApp
                 </a>
 
+                <div className="mt-3 text-xs text-black/50">
+                  WhatsApp:{" "}
+                  <a
+                    className="underline underline-offset-4 hover:text-black"
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {whatsappNumber}
+                  </a>
+                </div>
+
                 <div className="mt-6 text-sm font-semibold">Instagram</div>
                 <a
                   className="mt-2 inline-flex rounded-2xl border border-black/10 bg-black/5 px-5 py-3 text-sm font-semibold text-black hover:bg-black/10"
@@ -462,8 +510,6 @@ export default function WellnessLandingPage() {
 
             <div className="rounded-3xl border border-black/10 bg-white/60 p-6">
               <div className="text-sm font-semibold">Quick message</div>
-              
-
               <ContactForm to={contactEmail} />
             </div>
           </div>
@@ -606,7 +652,6 @@ function ContactForm({ to }: { to: string }) {
       >
         Send Email
       </a>
-   
     </div>
   );
 }
