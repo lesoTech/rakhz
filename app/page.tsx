@@ -61,7 +61,7 @@ export default function WellnessLandingPage() {
           <div className="flex items-center gap-3">
 <div className="relative h-10 w-10 overflow-hidden rounded-xl ring-1 ring-black/10">
   <Image
-    src="/first.JPG"
+    src="/first.jpg"
     alt="Rakhshanda Abidi"
     fill
     className="object-cover"
@@ -176,7 +176,7 @@ export default function WellnessLandingPage() {
                 {/* ✅ (4) Added image (public/second.jpg) */}
                <div className="relative mb-5 h-64 w-full overflow-hidden rounded-2xl border border-black/10 bg-black/5 sm:h-72">
   <Image
-    src="/second.jpg"
+    src="/second.JPG"
     alt="Rakhshanda Abidi"
     fill
 className="object-cover object-top"    
